@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  
+  app1:
+    container_name: docker-app1
+    restart: always
+    build: .
+    ports: 
+     - '5500:5500'
+    links:
+     - mariadb
+    volumes: 
+      - .:/usr/src/app
+    
+
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+    ports: 
+     - 3306:3306

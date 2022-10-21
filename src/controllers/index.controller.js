@@ -1,0 +1,1 @@
+export const getInicio = (req, res) => res.render('inicio')
